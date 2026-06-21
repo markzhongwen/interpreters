@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://markzhongwen.github.io/interpreters/sitemap.xml
