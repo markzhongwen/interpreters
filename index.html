@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专业口译服务 | 翻译与同传</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f5f7fa;
+        }
+        .hero {
+            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2.2em; margin-bottom: 15px; }
+        .hero p { font-size: 1.15em; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 35px;
+            margin: 30px auto;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .section h2 {
+            color: #1a365d;
+            font-size: 1.4em;
+            margin-bottom: 18px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+        }
+        .service-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .service-card .icon { font-size: 2em; margin-bottom: 8px; }
+        .service-card h3 { color: #2b6cb0; margin-bottom: 6px; font-size: 1.05em; }
+        .service-card p { font-size: 0.9em; color: #666; }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .stat-number { font-size: 1.8em; font-weight: bold; color: #2b6cb0; }
+        .stat-label { font-size: 0.85em; color: #888; }
+        .form-title { text-align: center; margin-bottom: 20px; }
+        .form-note {
+            background: #ebf8ff;
+            border-left: 4px solid #2b6cb0;
+            padding: 12px 16px;
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 20px;
+            font-size: 0.92em;
+            color: #2c5282;
+        }
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: #999;
+            font-size: 0.85em;
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.6em; }
+            .section { padding: 20px; }
+            .stats { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>专业口译与翻译服务</h1>
+    <p>中英 · 中日 · 中韩 | 会议口译 · 同声传译 · 商务陪同 · 笔译</p>
+</div>
+
+<div class="container">
+
+    <div class="section">
+        <h2>关于我们</h2>
+        <p>拥有10年行业经验的专业翻译团队，为国内外企业提供高质量的口译与笔译服务。我们深知跨语言沟通的重要性，致力于消除语言障碍，助力您的业务走向全球。</p>
+        <div class="stats">
+            <div><div class="stat-number">10+</div><div class="stat-label">年行业经验</div></div>
+            <div><div class="stat-number">100+</div><div class="stat-label">服务企业</div></div>
+            <div><div class="stat-number">5000+</div><div class="stat-label">项目完成</div></div>
+            <div><div class="stat-number">5+</div><div class="stat-label">语种覆盖</div></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>服务范围</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon">🎤</div>
+                <h3>会议口译</h3>
+                <p>承接各类商务会议、学术论坛、行业峰会的交替传译</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🎧</div>
+                <h3>同声传译</h3>
+                <p>提供专业同传设备与译员，保障国际会议流畅进行</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🤝</div>
+                <h3>商务陪同</h3>
+                <p>出国考察、客户接待、商务谈判全程语言支持</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">📝</div>
+                <h3>专业笔译</h3>
+                <p>合同、技术文档、法律文件、市场营销材料翻译</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="form-title">
+            <h2>立即咨询</h2>
+        </div>
+        <div class="form-note">
+            填写下方表单，我们将在 24 小时内回复您。所有信息严格保密。
+        </div>
+        <!-- ========================================
+             TODO: 替换下面的 src 为你的 Google 表单地址
+             步骤：forms.google.com → 创建表单 → 发送 → 嵌入图标 <> → 复制 src 链接
+        ======================================== -->
+        <iframe
+            src="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform?embedded=true"
+            width="100%" height="620" frameborder="0" marginheight="0" marginwidth="0">
+            加载中…
+        </iframe>
+    </div>
+
+</div>
+
+<div class="footer">
+    © 2026 专业口译服务 | 用心翻译，沟通世界
+</div>
+
+</body>
+</html>
