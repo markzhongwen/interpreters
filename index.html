@@ -281,6 +281,66 @@
         .why-card h4 { font-size: 0.95em; font-weight: 600; margin-bottom: 6px; }
         .why-card p { font-size: 0.85em; color: var(--text-light); }
 
+        /* === TESTIMONIALS === */
+        .testimonials-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 14px;
+            padding: 32px;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: all 0.3s;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .testimonial-stars {
+            color: #f59e0b;
+            font-size: 1.1em;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+        .testimonial-text {
+            font-size: 0.95em;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .testimonial-text::before { content: '\201C'; font-size: 1.5em; color: var(--accent); margin-right: 4px; }
+        .testimonial-text::after { content: '\201D'; font-size: 1.5em; color: var(--accent); margin-left: 4px; }
+        .testimonial-author {
+            display: flex; align-items: center; gap: 14px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        .testimonial-avatar {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            display: flex; align-items: center; justify-content: center;
+            color: var(--white); font-weight: 700; font-size: 1.1em;
+        }
+        .testimonial-name { font-weight: 600; font-size: 0.95em; }
+        .testimonial-role { font-size: 0.82em; color: var(--text-light); }
+        .testimonial-badge {
+            display: inline-block;
+            background: #ecfdf5;
+            color: #065f46;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        @media (max-width: 768px) {
+            .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+            .testimonial-card { padding: 24px; }
+        }
+
         /* === CONTACT FORM === */
         .contact-wrapper {
             display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
@@ -570,6 +630,91 @@
     </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="section" style="background: var(--white);">
+    <div class="container">
+        <div class="section-header">
+            <h2 data-i18n="testimonials_title">What Our Clients Say</h2>
+            <p data-i18n="testimonials_subtitle">Trusted by leading companies across industries</p>
+            <div class="divider"></div>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text" data-i18n="testi_1_text">GlobalLink provided simultaneous interpretation for our 3-day manufacturing summit in Shenzhen. The interpreters were technically fluent and handled complex engineering terminology flawlessly. We've used their services 5 times now.</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MK</div>
+                    <div>
+                        <div class="testimonial-name">Michael K.</div>
+                        <div class="testimonial-role">VP Operations, TechParts GmbH</div>
+                        <div class="testimonial-badge" data-i18n="testi_1_badge">Germany → China</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text" data-i18n="testi_2_text">We needed a Japanese-Chinese interpreter for a factory audit in Dongguan with just 24 hours notice. GlobalLink arranged everything perfectly. The interpreter arrived early and was incredibly professional throughout.</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">YT</div>
+                    <div>
+                        <div class="testimonial-name">Yuki T.</div>
+                        <div class="testimonial-role">Quality Manager, Osaka Precision Co.</div>
+                        <div class="testimonial-badge" data-i18n="testi_2_badge">Japan → China</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text" data-i18n="testi_3_text">The business escort interpreter helped us navigate supplier negotiations across 3 cities in Guangdong. Their knowledge of local business culture made a real difference. We saved 15% on our procurement costs thanks to better communication.</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SB</div>
+                    <div>
+                        <div class="testimonial-name">Sarah B.</div>
+                        <div class="testimonial-role">Procurement Director, RetailMax Inc.</div>
+                        <div class="testimonial-badge" data-i18n="testi_3_badge">USA → China</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text" data-i18n="testi_4_text">We've been using GlobalLink for all our China-related legal document translations for 3 years. Accuracy is always spot-on, and they deliver faster than any competitor we've tried. Highly recommended for legal translation.</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">PD</div>
+                    <div>
+                        <div class="testimonial-name">Pierre D.</div>
+                        <div class="testimonial-role">Legal Counsel, LuxTrade S.A.</div>
+                        <div class="testimonial-badge" data-i18n="testi_4_badge">France → China</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text" data-i18n="testi_5_text">The Korean-Chinese interpreter at the Canton Fair was exceptional. Not only was the interpretation accurate, but they also helped us understand cultural nuances during negotiations. We secured 3 new distribution partners.</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JP</div>
+                    <div>
+                        <div class="testimonial-name">Joonhee P.</div>
+                        <div class="testimonial-role">Business Development, Seoul Dynamics</div>
+                        <div class="testimonial-badge" data-i18n="testi_5_badge">Korea → China</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text" data-i18n="testi_6_text">From the initial inquiry to project delivery, everything was smooth. Our Spanish-Chinese translation of technical manuals was delivered on time and within budget. The quality exceeded our expectations.</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">RG</div>
+                    <div>
+                        <div class="testimonial-name">Roberto G.</div>
+                        <div class="testimonial-role">CTO, IberiaTech Solutions</div>
+                        <div class="testimonial-badge" data-i18n="testi_6_badge">Spain → China</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- CONTACT -->
 <section class="section" id="contact" style="background: var(--white);">
     <div class="container">
@@ -662,6 +807,19 @@ const translations = {
         why_coverage: "Global Coverage", why_coverage_desc: "On-site interpreters in 50+ cities across China. Remote interpretation available 24/7 worldwide.",
         why_value: "Transparent Pricing", why_value_desc: "No hidden fees. Clear hourly and daily rates for interpretation services with flexible packages.",
         why_quality: "Quality Guarantee", why_quality_desc: "Post-project review included. Free interpreter reassignment if standards are not met.",
+        testimonials_title: "What Our Clients Say", testimonials_subtitle: "Trusted by leading companies across industries",
+        testi_1_text: "GlobalLink provided simultaneous interpretation for our 3-day manufacturing summit in Shenzhen. The interpreters were technically fluent and handled complex engineering terminology flawlessly.",
+        testi_1_badge: "Germany → China",
+        testi_2_text: "We needed a Japanese-Chinese interpreter for a factory audit in Dongguan with just 24 hours notice. GlobalLink arranged everything perfectly. The interpreter was incredibly professional.",
+        testi_2_badge: "Japan → China",
+        testi_3_text: "The business escort interpreter helped us navigate supplier negotiations across 3 cities in Guangdong. Their knowledge of local business culture made a real difference.",
+        testi_3_badge: "USA → China",
+        testi_4_text: "We've been using GlobalLink for all our China-related legal document translations for 3 years. Accuracy is always spot-on, and they deliver faster than any competitor.",
+        testi_4_badge: "France → China",
+        testi_5_text: "The Korean-Chinese interpreter at the Canton Fair was exceptional. Not only accurate, but they also helped us understand cultural nuances during negotiations.",
+        testi_5_badge: "Korea → China",
+        testi_6_text: "From initial inquiry to delivery, everything was smooth. Our Spanish-Chinese translation of technical manuals was delivered on time and within budget.",
+        testi_6_badge: "Spain → China",
         contact_title: "Get in Touch", contact_subtitle: "Tell us about your interpretation needs and get a response within 24 hours",
         contact_direct: "Direct Contact",
         contact_whatsapp_btn: "Message on WhatsApp →",
@@ -688,6 +846,19 @@ const translations = {
         why_coverage: "全球覆盖", why_coverage_desc: "50+城市驻点译员，远程口译全天候可用。",
         why_value: "透明定价", why_value_desc: "无隐藏费用，时薪日薪清晰，灵活套餐。",
         why_quality: "质量保证", why_quality_desc: "含项目后审校，未达标免费更换译员。",
+        testimonials_title: "客户评价", testimonials_subtitle: "全球领先企业的信赖之选",
+        testi_1_text: "GlobalLink 为我们在深圳举办的3天制造业峰会提供了同声传译服务。译员技术流利，完美处理了复杂的工程术语。",
+        testi_1_badge: "德国 → 中国",
+        testi_2_text: "我们需要在东莞进行工厂审计的日中翻译，只提前了24小时通知。GlobalLink 完美安排了一切，译员非常专业。",
+        testi_2_badge: "日本 → 中国",
+        testi_3_text: "商务陪同译员帮助我们在广东3个城市进行供应商谈判。他们对当地商业文化的了解产生了真正的差异。",
+        testi_3_badge: "美国 → 中国",
+        testi_4_text: "我们使用 GlobalLink 进行中国相关法律文件翻译已有3年。准确性始终如一，交付速度超过任何竞争对手。",
+        testi_4_badge: "法国 → 中国",
+        testi_5_text: "广交会上的韩中翻译非常出色。不仅准确，还帮助我们在谈判中理解文化细微差别。",
+        testi_5_badge: "韩国 → 中国",
+        testi_6_text: "从初次咨询到项目交付，一切都很顺利。我们的西中技术手册翻译按时按预算完成。",
+        testi_6_badge: "西班牙 → 中国",
         contact_title: "联系我们", contact_subtitle: "告诉我们您的需求，24小时内回复",
         contact_direct: "直接联系",
         contact_whatsapp_btn: "WhatsApp 咨询 →",
@@ -714,6 +885,19 @@ const translations = {
         why_coverage: "グローバル対応", why_coverage_desc: "世界50都市以上の現地通訳者。リモート通訳は24時間対応。",
         why_value: "透明な料金", why_value_desc: "隠れた費用なし。時間制・日制の明確な料金体系。",
         why_quality: "品質保証", why_quality_desc: "プロジェクト後レビュー付き。基準を満たさない場合は無料で交代。",
+        testimonials_title: "お客様の声", testimonials_subtitle: "世界中の主要企業に信頼されています",
+        testi_1_text: "GlobalLinkは深センの3日間の製造サミットで同時通訳を提供しました。技術的に流暢で、複雑な工学术語を完璧に処理しました。",
+        testi_1_badge: "ドイツ → 中国",
+        testi_2_text: "東莞の工場監査に必要な日中通訳を24時間前で依頼しました。GlobalLinkは完璧に手配してくれました。",
+        testi_2_badge: "日本 → 中国",
+        testi_3_text: "ビジネス escort通訳が広東省3都市でのサプライヤー交渉をサポートしてくれました。地元のビジネス文化への理解が本物の違いを生みました。",
+        testi_3_badge: "米国 → 中国",
+        testi_4_text: "中国関連の法的文書翻訳にGlobalLinkを使っています。精度は常に完璧で、他の競合より速く納品してくれます。",
+        testi_4_badge: "フランス → 中国",
+        testi_5_text: "広交会の韓中通訳は卓越していました。正確なだけでなく、交渉中の文化的ニュアンスも理解させてくれました。",
+        testi_5_badge: "韓国 → 中国",
+        testi_6_text: "問い合わせから納品まで、すべてがスムーズでした。技術マニュアルの西中翻訳は予定通り予算内で完了しました。",
+        testi_6_badge: "スペイン → 中国",
         contact_title: "お問い合わせ", contact_subtitle: "プロジェクトについて教えてください。24時間以内にご返信いたします",
         contact_direct: "直接お問い合わせ",
         contact_whatsapp_btn: "WhatsAppで相談 →",
@@ -740,6 +924,19 @@ const translations = {
         why_coverage: "글로벌 커버리지", why_coverage_desc: "전 세계 50개 이상 도시 현지 통역사. 원격 통역 24시간 가능.",
         why_value: "투명한 가격", why_value_desc: "숨겨진 비용 없음. 명확한 시간제·일일제 요금.",
         why_quality: "품질 보증", why_quality_desc: "프로젝트 후 리뷰 포함. 기준 미충족 시 무료 교체.",
+        testimonials_title: "고객 후기", testimonials_subtitle: "전 세계 주요 기업이 신뢰하는 파트너",
+        testi_1_text: "GlobalLink는 선전에서 열린 3일간의 제조업 서밋에서 동시 통역을 제공했습니다. 통역사가 기술적으로 유창하고 복잡한 엔지니어링 용어를 완벽하게 처리했습니다.",
+        testi_1_badge: "독일 → 중국",
+        testi_2_text: "동관 공장 감사에 필요한 일중 통역사를 24시간 전에 요청했습니다. GlobalLink가 모든 것을 완벽하게 준비해 주었습니다.",
+        testi_2_badge: "일본 → 중국",
+        testi_3_text: "비즈니스 동행 통역사가 광동성 3개 도시에서 공급업체 협상을 도왔습니다. 현지 비즈니스 문화에 대한 이해가 진정한 차이를 만들었습니다.",
+        testi_3_badge: "미국 → 중국",
+        testi_4_text: "중국 관련 법률 문서 번역에 3년간 GlobalLink를 이용하고 있습니다. 정확성은 항상 완벽하며, 어떤 경쟁사보다 빠르게 제공합니다.",
+        testi_4_badge: "프랑스 → 중국",
+        testi_5_text: "카튼 페어에서의 한중 통역은 탁월했습니다. 정확할 뿐만 아니라 협상 중 문화적 뉘앙스를 이해하는 데도 도움을 주었습니다.",
+        testi_5_badge: "한국 → 중국",
+        testi_6_text: "문의부터 납품까지 모든 것이 원활했습니다. 기술 매뉴얼의 서중 번역은 시간과 예산 내에 완료되었습니다.",
+        testi_6_badge: "스페인 → 중국",
         contact_title: "문의하기", contact_subtitle: "프로젝트에 대해 알려주세요. 24시간 이내 답변드립니다",
         contact_direct: "직접 연락",
         contact_whatsapp_btn: "WhatsApp 상담 →",
@@ -766,6 +963,19 @@ const translations = {
         why_coverage: "Couverture mondiale", why_coverage_desc: "Interprètes sur site dans 50+ villes. Interprétation à distance 24/7.",
         why_value: "Prix transparent", why_value_desc: "Pas de frais cachés. Tarifs clairs et flexibles.",
         why_quality: "Garantie qualité", why_quality_desc: "Revue post-projet incluse. Remplacement gratuit si standards non atteints.",
+        testimonials_title: "Ce que disent nos clients", testimonials_subtitle: "La confiance d'entreprises leader dans le monde entier",
+        testi_1_text: "GlobalLink a fourni une interprétation simultanée pour notre sommet manufacturing de 3 jours à Shenzhen. Les interprètes étaient techniquement fluides et ont géré la terminologie technique parfaitement.",
+        testi_1_badge: "Allemagne → Chine",
+        testi_2_text: "Nous avions besoin d'un interprète japonais-chinois pour un audit d'usine à Dongguan avec seulement 24h d'avis. GlobalLink a tout organisé parfaitement.",
+        testi_2_badge: "Japon → Chine",
+        testi_3_text: "L'interprète d'accompagnement nous a aidés à naviguer les négociations avec les fournisseurs dans 3 villes du Guangdong. Leur connaissance de la culture locale a fait une vraie différence.",
+        testi_3_badge: "États-Unis → Chine",
+        testi_4_text: "Nous utilisons GlobalLink pour toutes nos traductions juridiques liées à la Chine depuis 3 ans. La précision est toujours parfaite et la livraison plus rapide que toute concurrence.",
+        testi_4_badge: "France → Chine",
+        testi_5_text: "L'interprète coréen-chinois au Canton Fair était exceptionnel. Non seulement précis, mais ils nous ont aussi aidés à comprendre les nuances culturelles.",
+        testi_5_badge: "Corée → Chine",
+        testi_6_text: "De la demande initiale à la livraison, tout s'est bien passé. Notre traduction espagnol-chinois des manuels techniques a été livrée à temps et dans le budget.",
+        testi_6_badge: "Espagne → Chine",
         contact_title: "Contactez-nous", contact_subtitle: "Décrivez votre projet et recevez une réponse sous 24 heures",
         contact_direct: "Contact direct",
         contact_whatsapp_btn: "Message sur WhatsApp →",
@@ -792,6 +1002,19 @@ const translations = {
         why_coverage: "Globale Abdeckung", why_coverage_desc: "Lokale Dolmetscher in 50+ Städten. Remote 24/7 verfügbar.",
         why_value: "Transparente Preise", why_value_desc: "Keine versteckten Gebühren. Klare Tagessätze und Stundensätze.",
         why_quality: "Qualitätsgarantie", why_quality_desc: "Nachprojekt-Review inklusive. Kostenloser Austausch bei Qualitätsmängeln.",
+        testimonials_title: "Was unsere Kunden sagen", testimonials_subtitle: "Vertraut von führenden Unternehmen weltweit",
+        testi_1_text: "GlobalLink lieferte Simultandolmetschen für unseren 3-tägigen Manufacturing-Gipfel in Shenzhen. Die Dolmetscher waren technisch flüssig und handhabten komplexe Fachbegriffe einwandfrei.",
+        testi_1_badge: "Deutschland → China",
+        testi_2_text: "Wir brauchten einen japanisch-chinesischen Dolmetscher für ein Werk audit in Dongguan mit nur 24 Stunden Vorlauf. GlobalLink organisierte alles perfekt.",
+        testi_2_badge: "Japan → China",
+        testi_3_text: "Der Business-Escort Dolmetscher half uns bei Lieferantenverhandlungen in 3 Städten in Guangdong. Ihr Wissen über die lokale Geschäftskultur machte einen echten Unterschied.",
+        testi_3_badge: "USA → China",
+        testi_4_text: "Wir nutzen GlobalLink seit 3 Jahren für alle China-bezogenen Rechtsdokumenten-Übersetzungen. Die Genauigkeit ist immer perfekt und die Lieferung schneller als jeder Wettbewerber.",
+        testi_4_badge: "Frankreich → China",
+        testi_5_text: "Der koreanisch-chinesische Dolmetscher auf der Canton Fair war außergewöhnlich. Nicht nur präzise, sondern half uns auch kulturelle Nuancen zu verstehen.",
+        testi_5_badge: "Korea → China",
+        testi_6_text: "Von der Anfrage bis zur Lieferung verlief alles reibungslos. Unsere spanisch-chinesische Übersetzung technischer Handbücher wurde termingerecht und budgetgerecht geliefert.",
+        testi_6_badge: "Spanien → China",
         contact_title: "Kontaktieren Sie uns", contact_subtitle: "Beschreiben Sie Ihr Projekt – Antwort innerhalb 24 Stunden",
         contact_direct: "Direktkontakt",
         contact_whatsapp_btn: "WhatsApp schreiben →",
@@ -818,6 +1041,19 @@ const translations = {
         why_coverage: "Cobertura global", why_coverage_desc: "Intérpretes en 50+ ciudades. Interpretación remota 24/7.",
         why_value: "Precios transparentes", why_value_desc: "Sin costos ocultos. Tarifas claras por hora y día.",
         why_quality: "Garantía de calidad", why_quality_desc: "Revisión posterior al proyecto. Reemplazo gratuito si no se cumplen estándares.",
+        testimonials_title: "Lo que dicen nuestros clientes", testimonials_subtitle: "La confianza de empresas líderes en todo el mundo",
+        testi_1_text: "GlobalLink proporcionó interpretación simultánea para nuestra cumbre de fabricación de 3 días en Shenzhen. Los intérpretes fueron técnicamente fluidos y manejan terminología compleja perfectamente.",
+        testi_1_badge: "Alemania → China",
+        testi_2_text: "Necesitábamos un intérprete japonés-chino para una auditoría de fábrica en Dongguan con solo 24 horas de aviso. GlobalLink organizó todo perfectamente.",
+        testi_2_badge: "Japón → China",
+        testi_3_text: "El intérprete de acompañamiento nos ayudó a navegar negociaciones con proveedores en 3 ciudades de Guangdong. Su conocimiento de la cultura local hizo una verdadera diferencia.",
+        testi_3_badge: "EE.UU. → China",
+        testi_4_text: "Hemos usado GlobalLink para todas nuestras traducciones legales relacionadas con China durante 3 años. La precisión es siempre perfecta y la entrega más rápida que cualquier competidor.",
+        testi_4_badge: "Francia → China",
+        testi_5_text: "El intérprete coreano-chino en la Canton Fair fue excepcional. No solo preciso, sino que también nos ayudó a entender matices culturales durante las negociaciones.",
+        testi_5_badge: "Corea → China",
+        testi_6_text: "Desde la consulta inicial hasta la entrega, todo fue fluido. Nuestra traducción español-chino de manuales técnicos se entregó a tiempo y dentro del presupuesto.",
+        testi_6_badge: "España → China",
         contact_title: "Contáctenos", contact_subtitle: "Cuéntenos sobre su proyecto y reciba respuesta en 24 horas",
         contact_direct: "Contacto directo",
         contact_whatsapp_btn: "Mensaje en WhatsApp →",
