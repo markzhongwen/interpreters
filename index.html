@@ -341,6 +341,50 @@
             .testimonial-card { padding: 24px; }
         }
 
+        /* === FAQ === */
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .faq-item:hover { border-color: var(--accent); }
+        .faq-item.open { border-color: var(--accent); box-shadow: 0 4px 16px rgba(37,99,235,0.08); }
+        .faq-question {
+            width: 100%; padding: 20px 24px;
+            background: none; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: space-between;
+            font-size: 1em; font-weight: 600; color: var(--text);
+            text-align: left; gap: 16px;
+        }
+        .faq-question:hover { color: var(--accent); }
+        .faq-icon {
+            width: 28px; height: 28px; min-width: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2em; color: var(--text-light);
+            transition: all 0.3s;
+        }
+        .faq-item.open .faq-icon { background: var(--accent); color: var(--white); transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+        }
+        .faq-item.open .faq-answer { max-height: 300px; }
+        .faq-answer-inner {
+            padding: 0 24px 20px;
+            font-size: 0.92em; line-height: 1.7;
+            color: var(--text-light);
+        }
+        @media (max-width: 768px) {
+            .faq-question { padding: 16px 18px; font-size: 0.95em; }
+            .faq-answer-inner { padding: 0 18px 16px; font-size: 0.88em; }
+        }
+
         /* === CONTACT FORM === */
         .contact-wrapper {
             display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
@@ -715,6 +759,68 @@
     </div>
 </section>
 
+<!-- FAQ -->
+<section class="section" id="faq">
+    <div class="container">
+        <div class="section-header">
+            <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
+            <p data-i18n="faq_subtitle">Quick answers to common questions about our interpretation services</p>
+            <div class="divider"></div>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-i18n="faq_q1">How far in advance should I book an interpreter?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a1">We recommend booking at least 1-2 weeks in advance for conference interpreting. For business escort and on-site interpretation, 3-5 business days is typically sufficient. We also accept urgent bookings with as little as 4 hours notice, subject to interpreter availability.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-i18n="faq_q2">What languages do your interpreters speak?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a2">We cover 20+ language pairs including Chinese-English, Chinese-Japanese, Chinese-Korean, Chinese-French, Chinese-German, Chinese-Spanish, and many more. All our interpreters are native speakers with professional certification and industry-specific expertise.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-i18n="faq_q3">How much does interpretation services cost?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a3">Pricing varies by service type, language pair, and duration. Conference interpreting typically starts from $500/day, business escort from $300/day, and document translation from $0.10/word. Contact us for a free, customized quote based on your specific needs.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-i18n="faq_q4">Do you provide simultaneous interpretation equipment?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a4">Yes, we provide complete simultaneous interpretation equipment including booths, headsets, microphones, and receivers. We can supply equipment for events with up to 500 participants. Our technical team handles setup and breakdown.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-i18n="faq_q5">Can I hire an interpreter for a factory visit?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a5">Absolutely. Factory visit interpretation is one of our most popular services. Our interpreters are familiar with manufacturing terminology and can accompany you for full-day or multi-day factory tours across Guangdong and other major manufacturing regions in China.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-i18n="faq_q6">Do you offer remote/virtual interpretation?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a6">Yes, we provide remote interpretation via Zoom, Teams, Webex, and other platforms. This is ideal for online meetings, webinars, and virtual conferences. Our remote interpreters use professional-grade equipment and stable connections to ensure quality.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-i18n="faq_q7">What is your cancellation policy?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a7">Cancellations made 7+ days before the service date receive a full refund. Cancellations 3-6 days before receive a 50% refund. Cancellations within 48 hours are non-refundable. We understand plans change and will work with you to find the best solution.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- CONTACT -->
 <section class="section" id="contact" style="background: var(--white);">
     <div class="container">
@@ -820,6 +926,14 @@ const translations = {
         testi_5_badge: "Korea → China",
         testi_6_text: "From initial inquiry to delivery, everything was smooth. Our Spanish-Chinese translation of technical manuals was delivered on time and within budget.",
         testi_6_badge: "Spain → China",
+        faq_title: "Frequently Asked Questions", faq_subtitle: "Quick answers to common questions about our interpretation services",
+        faq_q1: "How far in advance should I book an interpreter?", faq_a1: "We recommend booking at least 1-2 weeks in advance for conference interpreting. For business escort and on-site interpretation, 3-5 business days is typically sufficient. We also accept urgent bookings with as little as 4 hours notice, subject to interpreter availability.",
+        faq_q2: "What languages do your interpreters speak?", faq_a2: "We cover 20+ language pairs including Chinese-English, Chinese-Japanese, Chinese-Korean, Chinese-French, Chinese-German, Chinese-Spanish, and many more. All our interpreters are native speakers with professional certification.",
+        faq_q3: "How much does interpretation services cost?", faq_a3: "Pricing varies by service type, language pair, and duration. Conference interpreting starts from $500/day, business escort from $300/day, document translation from $0.10/word. Contact us for a free quote.",
+        faq_q4: "Do you provide simultaneous interpretation equipment?", faq_a4: "Yes, we provide complete equipment including booths, headsets, microphones, and receivers for events with up to 500 participants. Our technical team handles setup and breakdown.",
+        faq_q5: "Can I hire an interpreter for a factory visit?", faq_a5: "Absolutely. Factory visit interpretation is one of our most popular services. Our interpreters are familiar with manufacturing terminology and can accompany you for full-day or multi-day factory tours.",
+        faq_q6: "Do you offer remote/virtual interpretation?", faq_a6: "Yes, we provide remote interpretation via Zoom, Teams, Webex, and other platforms. Ideal for online meetings, webinars, and virtual conferences with professional-grade quality.",
+        faq_q7: "What is your cancellation policy?", faq_a7: "Cancellations 7+ days before receive a full refund. 3-6 days before receive 50% refund. Within 48 hours are non-refundable. We understand plans change and will work with you.",
         contact_title: "Get in Touch", contact_subtitle: "Tell us about your interpretation needs and get a response within 24 hours",
         contact_direct: "Direct Contact",
         contact_whatsapp_btn: "Message on WhatsApp →",
@@ -859,6 +973,14 @@ const translations = {
         testi_5_badge: "韩国 → 中国",
         testi_6_text: "从初次咨询到项目交付，一切都很顺利。我们的西中技术手册翻译按时按预算完成。",
         testi_6_badge: "西班牙 → 中国",
+        faq_title: "常见问题", faq_subtitle: "关于口译服务的常见问题快速解答",
+        faq_q1: "应该提前多久预约译员？", faq_a1: "建议会议口译提前1-2周预约。商务陪同和驻场口译通常提前3-5个工作日即可。我们也接受最短4小时的紧急预约，视译员档期而定。",
+        faq_q2: "你们的译员会说哪些语言？", faq_a2: "我们覆盖20+语言对，包括中英、中日、中韩、中法、中德、中西等。所有译员均为母语使用者，持有专业认证。",
+        faq_q3: "口译服务收费多少？", faq_a3: "价格因服务类型、语言对和时长而异。会议口译$500/天起，商务陪同$300/天起，文档翻译$0.10/词起。联系我们获取免费报价。",
+        faq_q4: "你们提供同声传译设备吗？", faq_a4: "是的，我们提供完整的同传设备，包括翻译间、耳机、麦克风和接收器，最多可支持500人活动。技术团队负责安装和拆卸。",
+        faq_q5: "可以请译员陪同参观工厂吗？", faq_a5: "当然可以。工厂参观口译是我们最受欢迎的服务之一。译员熟悉制造业术语，可提供全天或多日工厂参观陪同。",
+        faq_q6: "你们提供远程口译服务吗？", faq_a6: "是的，我们通过Zoom、Teams、Webex等平台提供远程口译。适合在线会议、网络研讨会和虚拟会议，保证专业品质。",
+        faq_q7: "取消政策是什么？", faq_a7: "活动前7天以上取消全额退款，3-6天取消退50%，48小时内取消不可退款。我们理解计划变化，会尽力与您协商。",
         contact_title: "联系我们", contact_subtitle: "告诉我们您的需求，24小时内回复",
         contact_direct: "直接联系",
         contact_whatsapp_btn: "WhatsApp 咨询 →",
@@ -898,6 +1020,14 @@ const translations = {
         testi_5_badge: "韓国 → 中国",
         testi_6_text: "問い合わせから納品まで、すべてがスムーズでした。技術マニュアルの西中翻訳は予定通り予算内で完了しました。",
         testi_6_badge: "スペイン → 中国",
+        faq_title: "よくある質問", faq_subtitle: "口译サービスに関するよくある質問への回答",
+        faq_q1: "通訳者はどのくらい前に予約すべきですか？", faq_a1: "会議通訳は1-2週間前、ビジネス escortや現地通訳は3-5営業日前が推奨です。4時間前の緊急予約も対応可能です（通訳者の空き状況によります）。",
+        faq_q2: "通訳者は何种の言語を話せますか？", faq_a2: "中英、中日、中韓、中仏、中独、中西など20以上の言語ペアに対応。全通訳者はネイティブスピーカーでプロの資格を保有しています。",
+        faq_q3: "通訳サービスの料金はいくらですか？", faq_a3: "サービスタイプ、言語ペア、時間により異なります。会議通訳は1日$500〜、ビジネスescortは1日$300〜、文書翻訳は1語$0.10〜。無料見積もりをご依頼ください。",
+        faq_q4: "同時通訳機材は提供していますか？", faq_a4: "はい、ブース、ヘッドセット、マイク、受信機を含む完全な機材を提供。最大500人のイベントに対応。技術チームが設撤を担当します。",
+        faq_q5: "工場見学に通訳者を依頼できますか？", faq_a5: "もちろん可能です。工場見学通訳は最も人気のあるサービスの一つ。製造業の専門用語に精通し、終日或多日の工場見学に対応します。",
+        faq_q6: "リモート通訳は提供していますか？", faq_a6: "はい、Zoom、Teams、Webexなどでリモート通訳を提供。オンライン会議やウェビナーに最適。プロ品質を保証します。",
+        faq_q7: "キャンセルポリシーは何ですか？", faq_a7: "7日以上前なら全額返金、3-6日前なら50%返金、48時間以内は不可。計画の変更に理解があり、最善の解決策をご提案します。",
         contact_title: "お問い合わせ", contact_subtitle: "プロジェクトについて教えてください。24時間以内にご返信いたします",
         contact_direct: "直接お問い合わせ",
         contact_whatsapp_btn: "WhatsAppで相談 →",
@@ -937,6 +1067,14 @@ const translations = {
         testi_5_badge: "한국 → 중국",
         testi_6_text: "문의부터 납품까지 모든 것이 원활했습니다. 기술 매뉴얼의 서중 번역은 시간과 예산 내에 완료되었습니다.",
         testi_6_badge: "스페인 → 중국",
+        faq_title: "자주 묻는 질문", faq_subtitle: "통역 서비스에 대한 빠른 답변",
+        faq_q1: "통역사를 얼마나 미리 예약해야 하나요?", faq_a1: "회의 통역은 1-2주 전, 비즈니스 동행 및 현지 통역은 3-5영업일 전 예약을 권장합니다. 4시간 전 긴급 예약도 통역사 가용성에 따라 가능합니다.",
+        faq_q2: "통역사가 어떤 언어를 하나요?", faq_a2: "중영, 중일, 중한, 중불, 중독, 중서 등 20개 이상의 언어 페어를 지원합니다. 모든 통역사는 원어민이며 전문 자격을 보유하고 있습니다.",
+        faq_q3: "통역 서비스 비용은 얼마인가요?", faq_a3: "서비스 유형, 언어 페어, 기간에 따라 다릅니다. 회의 통역은 $500/일부터, 비즈니스 동행은 $300/일부터, 문서 번역은 단어당 $0.10부터 시작합니다. 무료 견적을 요청해 주세요.",
+        faq_q4: "동시 통역 장비를 제공하나요?", faq_a4: "네, 부스, 헤드셋, 마이크, 수신기를 포함한 완전한 장비를 제공합니다. 최대 500명 규모 이벤트에 대응 가능하며 기술 팀이 설치 및 철거를 담당합니다.",
+        faq_q5: "공장 견학에 통역사를 고용할 수 있나요?", faq_a5: "물론입니다. 공장 견학 통역은 가장 인기 있는 서비스 중 하나입니다. 제조업 전문 용어에 능통하며 종일 또는 다일 공장 견학에 동행 가능합니다.",
+        faq_q6: "원격/가상 통역을 제공하나요?", faq_a6: "네, Zoom, Teams, Webex 등에서 원격 통역을 제공합니다. 온라인 회의, 웨비나, 가상 컨퍼런스에 이상적이며 프로급 품질을 보장합니다.",
+        faq_q7: "취소 정책은 무엇인가요?", faq_a7: "7일 이상 전 취소 시 전액 환불, 3-6일 전 50% 환불, 48시간 이내는 환불 불가입니다. 계획 변경을 이해하며 최선의 해결책을 찾아드리겠습니다.",
         contact_title: "문의하기", contact_subtitle: "프로젝트에 대해 알려주세요. 24시간 이내 답변드립니다",
         contact_direct: "직접 연락",
         contact_whatsapp_btn: "WhatsApp 상담 →",
@@ -976,6 +1114,14 @@ const translations = {
         testi_5_badge: "Corée → Chine",
         testi_6_text: "De la demande initiale à la livraison, tout s'est bien passé. Notre traduction espagnol-chinois des manuels techniques a été livrée à temps et dans le budget.",
         testi_6_badge: "Espagne → Chine",
+        faq_title: "Questions Fréquentes", faq_subtitle: "Réponses rapides aux questions courantes sur nos services",
+        faq_q1: "Combien de temps à l'avance dois-je réserver un interprète?", faq_a1: "Nous recommandons de réserver 1-2 semaines à l'avance pour l'interprétation de conférence. Pour l'accompagnement, 3-5 jours ouvrés suffisent. Les réservations d'urgence avec 4h d'avis sont possibles.",
+        faq_q2: "Quelles langues parlent vos interprètes?", faq_a2: "Nous couvrons plus de 20 paires linguistiques dont chinois-anglais, chinois-japonais, chinois-coréen, chinois-français, chinois-allemand, chinois-espagnol. Tous sont natifs et certifiés.",
+        faq_q3: "Combien coûtent vos services?", faq_a3: "Les tarifs varient selon le type, la langue et la durée. Interprétation à partir de 500$/jour, accompagnement 300$/jour, traduction 0,10$/mot. Contactez-nous pour un devis gratuit.",
+        faq_q4: "Fournissez-vous du matériel d'interprétation simultanée?", faq_a4: "Oui, nous fournissons équipement complet : cabines, casques, microphones, récepteurs pour événements jusqu'à 500 personnes. Notre équipe technique gère l'installation.",
+        faq_q5: "Puis-je engager un interprète pour une visite d'usine?", faq_a5: "Absolument. La visite d'usine est l'un de nos services les plus populaires. Nos interprètes maîtrisent la terminologie industrielle et vous accompagnent pour des visites d'une journée ou plus.",
+        faq_q6: "Offrez-vous de l'interprétation à distance?", faq_a6: "Oui, via Zoom, Teams, Webex et autres plateformes. Idéal pour réunions en ligne, webinaires et conférences virtuelles avec qualité professionnelle.",
+        faq_q7: "Quelle est votre politique d'annulation?", faq_a7: "Annulation 7+ jours avant : remboursement complet. 3-6 jours : 50%. Dans les 48h : non remboursable. Nous comprenons que les plans changent et travaillerons avec vous.",
         contact_title: "Contactez-nous", contact_subtitle: "Décrivez votre projet et recevez une réponse sous 24 heures",
         contact_direct: "Contact direct",
         contact_whatsapp_btn: "Message sur WhatsApp →",
@@ -1015,6 +1161,14 @@ const translations = {
         testi_5_badge: "Korea → China",
         testi_6_text: "Von der Anfrage bis zur Lieferung verlief alles reibungslos. Unsere spanisch-chinesische Übersetzung technischer Handbücher wurde termingerecht und budgetgerecht geliefert.",
         testi_6_badge: "Spanien → China",
+        faq_title: "Häufig Gestellte Fragen", faq_subtitle: "Schnelle Antworten auf häufige Fragen zu unseren Dolmetscherdiensten",
+        faq_q1: "Wie weit im Voraus sollte ich einen Dolmetscher buchen?", faq_a1: "Wir empfehlen 1-2 Wochen im Voraus für Konferenzdolmetschen. Für Business-Escort reichen 3-5 Werktage. Notfallbuchungen mit nur 4 Stunden Vorlauf sind möglich.",
+        faq_q2: "Welche Sprachen sprechen Ihre Dolmetscher?", faq_a2: "Wir decken 20+ Sprachpaare ab, darunter Chinesisch-Englisch, Chinesisch-Japanisch, Chinesisch-Koreanisch, Chinesisch-Französisch, Chinesisch-Deutsch, Chinesisch-Spanisch. Alle sind native speakers mit Zertifizierung.",
+        faq_q3: "Was kosten Ihre Dienstleistungen?", faq_a3: "Preise variieren nach Serviceart, Sprachpaar und Dauer. Konferenzdolmetschen ab 500$/Tag, Business-Escort ab 300$/Tag, Übersetzung ab 0,10$/Wort. Kontaktieren Sie uns für ein kostenloses Angebot.",
+        faq_q4: "Liefern Sie Simultandolmetscher-Ausrüstung?", faq_a4: "Ja, wir liefern komplette Ausrüstung inkl. Kabinen, Headsets, Mikrofone und Empfänger für Veranstaltungen bis 500 Teilnehmer. Unser Technikteam übernimmt Auf- und Abbau.",
+        faq_q5: "Kann ich einen Dolmetscher für einen Fabrikbesuch buchen?", faq_a5: "Absolut. Fabrikbesuche sind einer unserer beliebtesten Services. Unsere Dolmetscher kennen die Fachsprache und begleiten Sie ganztägig oder mehrere Tage.",
+        faq_q6: "Bieten Sie Remote-Dolmetschen an?", faq_a6: "Ja, über Zoom, Teams, Webex und andere Plattformen. Ideal für Online-Meetings, Webinare und virtuelle Konferenzen in professioneller Qualität.",
+        faq_q7: "Wie ist Ihre Stornopolitik?", faq_a7: "Stornierung 7+ Tage vorher: volle Rückerstattung. 3-6 Tage: 50%. Innerhalb von 48 Stunden: nicht erstattungsfähig. Wir verstehen, dass sich Pläne ändern.",
         contact_title: "Kontaktieren Sie uns", contact_subtitle: "Beschreiben Sie Ihr Projekt – Antwort innerhalb 24 Stunden",
         contact_direct: "Direktkontakt",
         contact_whatsapp_btn: "WhatsApp schreiben →",
@@ -1054,6 +1208,14 @@ const translations = {
         testi_5_badge: "Corea → China",
         testi_6_text: "Desde la consulta inicial hasta la entrega, todo fue fluido. Nuestra traducción español-chino de manuales técnicos se entregó a tiempo y dentro del presupuesto.",
         testi_6_badge: "España → China",
+        faq_title: "Preguntas Frecuentes", faq_subtitle: "Respuestas rápidas a preguntas comunes sobre nuestros servicios",
+        faq_q1: "¿Con cuánta antelación debo reservar un intérprete?", faq_a1: "Recomendamos reservar 1-2 semanas antes para interpretación de conferencias. Para acompañamiento, 3-5 días hábiles son suficientes. También aceptamos reservas de emergencia con solo 4 horas de aviso.",
+        faq_q2: "¿Qué idiomas hablan sus intérpretes?", faq_a2: "Cubrimos más de 20 pares de idiomas incluyendo chino-inglés, chino-japonés, chino-coreano, chino-francés, chino-alemán, chino-español. Todos son hablantes nativos con certificación profesional.",
+        faq_q3: "¿Cuánto cuestan sus servicios?", faq_a3: "Los precios varían según tipo, par de idiomas y duración. Interpretación desde $500/día, acompañamiento desde $300/día, traducción desde $0.10/palabra. Contáctenos para una cotización gratuita.",
+        faq_q4: "¿Proporcionan equipo de interpretación simultánea?", faq_a4: "Sí, proporcionamos equipo completo incluyendo cabinas, auriculares, micrófonos y receptores para eventos de hasta 500 participantes. Nuestro equipo técnico maneja instalación y desmontaje.",
+        faq_q5: "¿Puedo contratar un intérprete para una visita a fábrica?", faq_a5: "Absolutamente. La interpretación en visitas a fábricas es uno de nuestros servicios más populares. Nuestros intérpretes conocen la terminología de fabricación y lo acompañan en visitas de un día o varios días.",
+        faq_q6: "¿Ofrecen interpretación remota/virtual?", faq_a6: "Sí, a través de Zoom, Teams, Webex y otras plataformas. Ideal para reuniones en línea, seminarios web y conferencias virtuales con calidad profesional.",
+        faq_q7: "¿Cuál es su política de cancelación?", faq_a7: "Cancelaciones 7+ días antes: reembolso completo. 3-6 días: 50%. Dentro de 48 horas: no reembolsable. Entendemos que los planes cambian y trabajaremos con usted.",
         contact_title: "Contáctenos", contact_subtitle: "Cuéntenos sobre su proyecto y reciba respuesta en 24 horas",
         contact_direct: "Contacto directo",
         contact_whatsapp_btn: "Mensaje en WhatsApp →",
@@ -1111,6 +1273,14 @@ document.addEventListener('click', function(e) {
         document.getElementById('langSelector').classList.remove('open');
     }
 });
+
+// FAQ toggle
+function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+}
 
 // Default to English for SEO
 setLang('en');
