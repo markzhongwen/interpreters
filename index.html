@@ -3,157 +3,724 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>专业口译服务 | 翻译与同传</title>
+    <title>GlobalLink Interpreting | Professional Language Services</title>
+    <meta name="description" content="Professional interpreting and translation services. Conference interpreting, simultaneous interpretation, business escort, and document translation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #0f2b46;
+            --primary-light: #1a4a7a;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --gold: #d4a853;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.1);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
             line-height: 1.7;
-            color: #333;
-            background: #f5f7fa;
+            color: var(--text);
+            background: var(--bg);
         }
+
+        /* === NAVBAR === */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(15,43,70,0.97);
+            backdrop-filter: blur(12px);
+            padding: 0 40px;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .nav-brand {
+            font-size: 1.3em; font-weight: 700; color: var(--white);
+            letter-spacing: -0.5px;
+        }
+        .nav-brand span { color: var(--gold); }
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+        .nav-links a {
+            color: rgba(255,255,255,0.8); text-decoration: none;
+            font-size: 0.88em; font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .lang-selector {
+            display: flex; gap: 2px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px; padding: 3px;
+        }
+        .lang-btn {
+            background: none; border: none; color: rgba(255,255,255,0.6);
+            padding: 4px 10px; border-radius: 4px; cursor: pointer;
+            font-size: 0.78em; font-weight: 600; transition: all 0.2s;
+        }
+        .lang-btn.active { background: var(--accent); color: var(--white); }
+        .lang-btn:hover:not(.active) { color: var(--white); }
+
+        /* === HERO === */
         .hero {
-            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
-            color: white;
-            padding: 60px 20px;
+            background: linear-gradient(160deg, #0f2b46 0%, #1a4a7a 40%, #2563eb 100%);
+            color: var(--white);
+            padding: 160px 20px 100px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        .hero h1 { font-size: 2.2em; margin-bottom: 15px; }
-        .hero p { font-size: 1.15em; opacity: 0.9; max-width: 600px; margin: 0 auto; }
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .hero::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
         }
-        .section {
-            background: white;
-            border-radius: 10px;
-            padding: 35px;
-            margin: 30px auto;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 3em; font-weight: 700; margin-bottom: 20px; letter-spacing: -1px; line-height: 1.2; }
+        .hero h1 span { color: var(--gold); }
+        .hero p { font-size: 1.2em; opacity: 0.85; max-width: 600px; margin: 0 auto 35px; font-weight: 300; }
+        .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            padding: 14px 32px; border-radius: 8px; font-weight: 600;
+            font-size: 0.95em; text-decoration: none; transition: all 0.3s;
+            display: inline-flex; align-items: center; gap: 8px;
+            border: none; cursor: pointer;
         }
-        .section h2 {
-            color: #1a365d;
-            font-size: 1.4em;
-            margin-bottom: 18px;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 10px;
+        .btn-primary { background: var(--gold); color: var(--primary); }
+        .btn-primary:hover { background: #c49a45; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,168,83,0.3); }
+        .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.3); }
+        .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+        /* === CONTAINER === */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* === STATS BAR === */
+        .stats-bar {
+            background: var(--white);
+            margin: -40px auto 0;
+            position: relative; z-index: 2;
+            border-radius: 16px;
+            padding: 30px 40px;
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            box-shadow: var(--shadow-lg);
+            max-width: 900px;
         }
+        .stat { text-align: center; }
+        .stat-number { font-size: 2.2em; font-weight: 700; color: var(--accent); }
+        .stat-label { font-size: 0.82em; color: var(--text-light); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* === SECTIONS === */
+        .section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2em; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+        .section-header p { color: var(--text-light); font-size: 1.05em; max-width: 550px; margin: 0 auto; }
+        .section-header .divider { width: 50px; height: 3px; background: var(--gold); margin: 16px auto 0; border-radius: 2px; }
+
+        /* === SERVICES === */
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 18px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
         }
         .service-card {
-            background: #f8fafc;
+            background: var(--white);
+            border-radius: 14px;
+            padding: 32px 28px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .service-card:hover::before { opacity: 1; }
+        .service-icon {
+            width: 52px; height: 52px; border-radius: 12px;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5em; margin-bottom: 18px;
+        }
+        .service-card h3 { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; color: var(--primary); }
+        .service-card p { font-size: 0.9em; color: var(--text-light); line-height: 1.6; }
+
+        /* === LANGUAGES === */
+        .languages-grid {
+            display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+        }
+        .lang-tag {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: 500;
+            color: var(--primary);
+            transition: all 0.2s;
+        }
+        .lang-tag:hover {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+        }
+
+        /* === WHY US === */
+        .why-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .why-card {
+            display: flex; gap: 16px; padding: 24px;
+            background: var(--white); border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .why-icon {
+            width: 44px; height: 44px; min-width: 44px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            display: flex; align-items: center; justify-content: center;
+            color: var(--white); font-size: 1.1em;
+        }
+        .why-card h4 { font-size: 0.95em; font-weight: 600; margin-bottom: 6px; }
+        .why-card p { font-size: 0.85em; color: var(--text-light); }
+
+        /* === CONTACT FORM === */
+        .contact-wrapper {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+            align-items: start;
+        }
+        .contact-info { padding: 10px 0; }
+        .contact-info h3 { font-size: 1.4em; font-weight: 600; margin-bottom: 20px; color: var(--primary); }
+        .contact-item {
+            display: flex; align-items: flex-start; gap: 14px;
+            margin-bottom: 20px; padding: 16px;
+            background: var(--white); border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        .contact-item-icon {
+            width: 40px; height: 40px; min-width: 40px;
             border-radius: 8px;
-            padding: 20px;
+            background: #eff6ff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1em;
+        }
+        .contact-item-label { font-size: 0.78em; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; }
+        .contact-item-value { font-size: 0.92em; font-weight: 500; color: var(--text); }
+        .form-frame {
+            background: var(--white);
+            border-radius: 14px;
+            padding: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .form-frame iframe {
+            width: 100%; height: 580px; border: none; border-radius: 10px;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.7);
+            padding: 40px 20px;
             text-align: center;
-            border: 1px solid #e2e8f0;
         }
-        .service-card .icon { font-size: 2em; margin-bottom: 8px; }
-        .service-card h3 { color: #2b6cb0; margin-bottom: 6px; font-size: 1.05em; }
-        .service-card p { font-size: 0.9em; color: #666; }
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
-            margin: 20px 0;
+        footer .footer-brand { font-size: 1.1em; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+        footer .footer-brand span { color: var(--gold); }
+        footer p { font-size: 0.82em; }
+
+        /* === WHATSAPP FLOAT === */
+        .whatsapp-float {
+            position: fixed; bottom: 28px; right: 28px; z-index: 999;
         }
-        .stat-number { font-size: 1.8em; font-weight: bold; color: #2b6cb0; }
-        .stat-label { font-size: 0.85em; color: #888; }
-        .form-title { text-align: center; margin-bottom: 20px; }
-        .form-note {
-            background: #ebf8ff;
-            border-left: 4px solid #2b6cb0;
-            padding: 12px 16px;
-            border-radius: 0 6px 6px 0;
-            margin-bottom: 20px;
-            font-size: 0.92em;
-            color: #2c5282;
+        .whatsapp-float a {
+            display: flex; align-items: center; gap: 10px;
+            background: #25d366;
+            color: var(--white);
+            padding: 14px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600; font-size: 0.9em;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            transition: all 0.3s;
         }
-        .footer {
-            text-align: center;
-            padding: 25px;
-            color: #999;
-            font-size: 0.85em;
+        .whatsapp-float a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 28px rgba(37,211,102,0.5);
         }
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 1.6em; }
-            .section { padding: 20px; }
-            .stats { flex-direction: column; gap: 15px; }
+        .whatsapp-float svg { width: 22px; height: 22px; fill: white; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            .nav-links a:not(.btn-nav) { display: none; }
+            .hero { padding: 130px 20px 70px; }
+            .hero h1 { font-size: 2em; }
+            .hero p { font-size: 1em; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); margin: -30px 20px 0; padding: 24px; }
+            .stat-number { font-size: 1.6em; }
+            .section { padding: 50px 0; }
+            .section-header h2 { font-size: 1.5em; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .whatsapp-float a span { display: none; }
+            .whatsapp-float a { padding: 16px; border-radius: 50%; }
         }
     </style>
 </head>
 <body>
 
-<div class="hero">
-    <h1>专业口译与翻译服务</h1>
-    <p>中英 · 中日 · 中韩 | 会议口译 · 同声传译 · 商务陪同 · 笔译</p>
-</div>
-
-<div class="container">
-
-    <div class="section">
-        <h2>关于我们</h2>
-        <p>拥有10年行业经验的专业翻译团队，为国内外企业提供高质量的口译与笔译服务。我们深知跨语言沟通的重要性，致力于消除语言障碍，助力您的业务走向全球。</p>
-        <div class="stats">
-            <div><div class="stat-number">10+</div><div class="stat-label">年行业经验</div></div>
-            <div><div class="stat-number">100+</div><div class="stat-label">服务企业</div></div>
-            <div><div class="stat-number">5000+</div><div class="stat-label">项目完成</div></div>
-            <div><div class="stat-number">5+</div><div class="stat-label">语种覆盖</div></div>
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-brand">Global<span>Link</span></div>
+    <div class="nav-links">
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#why" data-i18n="nav_why">Why Us</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+        <div class="lang-selector">
+            <button class="lang-btn" onclick="setLang('en')">EN</button>
+            <button class="lang-btn active" onclick="setLang('zh')">中</button>
+            <button class="lang-btn" onclick="setLang('ja')">日</button>
+            <button class="lang-btn" onclick="setLang('ko')">한</button>
+            <button class="lang-btn" onclick="setLang('fr')">FR</button>
+            <button class="lang-btn" onclick="setLang('de')">DE</button>
+            <button class="lang-btn" onclick="setLang('es')">ES</button>
         </div>
     </div>
+</nav>
 
-    <div class="section">
-        <h2>服务范围</h2>
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 data-i18n="hero_title">Bridging Languages, <span>Connecting Worlds</span></h1>
+        <p data-i18n="hero_subtitle">Professional interpreting & translation for conferences, business, and legal matters. 10+ years of experience serving 100+ enterprises globally.</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary" data-i18n="hero_cta">Get a Free Quote</a>
+            <a href="#services" class="btn btn-outline" data-i18n="hero_learn">Our Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="container">
+    <div class="stats-bar">
+        <div class="stat"><div class="stat-number">10+</div><div class="stat-label" data-i18n="stat_years">Years Experience</div></div>
+        <div class="stat"><div class="stat-number">100+</div><div class="stat-label" data-i18n="stat_clients">Clients Served</div></div>
+        <div class="stat"><div class="stat-number">5000+</div><div class="stat-label" data-i18n="stat_projects">Projects Done</div></div>
+        <div class="stat"><div class="stat-number">20+</div><div class="stat-label" data-i18n="stat_languages">Language Pairs</div></div>
+    </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+    <div class="container">
+        <div class="section-header">
+            <h2 data-i18n="services_title">Our Services</h2>
+            <p data-i18n="services_subtitle">Comprehensive language solutions tailored to your needs</p>
+            <div class="divider"></div>
+        </div>
         <div class="services-grid">
             <div class="service-card">
-                <div class="icon">🎤</div>
-                <h3>会议口译</h3>
-                <p>承接各类商务会议、学术论坛、行业峰会的交替传译</p>
+                <div class="service-icon">🎤</div>
+                <h3 data-i18n="svc_conference">Conference Interpreting</h3>
+                <p data-i18n="svc_conference_desc">Consecutive and simultaneous interpretation for international conferences, forums, and summits.</p>
             </div>
             <div class="service-card">
-                <div class="icon">🎧</div>
-                <h3>同声传译</h3>
-                <p>提供专业同传设备与译员，保障国际会议流畅进行</p>
+                <div class="service-icon">🎧</div>
+                <h3 data-i18n="svc_simultaneous">Simultaneous Interpretation</h3>
+                <p data-i18n="svc_simultaneous_desc">Professional booth interpreters and equipment for real-time multilingual events.</p>
             </div>
             <div class="service-card">
-                <div class="icon">🤝</div>
-                <h3>商务陪同</h3>
-                <p>出国考察、客户接待、商务谈判全程语言支持</p>
+                <div class="service-icon">🤝</div>
+                <h3 data-i18n="svc_escort">Business Escort</h3>
+                <p data-i18n="svc_escort_desc">On-site language support for factory tours, client meetings, negotiations, and trade shows.</p>
             </div>
             <div class="service-card">
-                <div class="icon">📝</div>
-                <h3>专业笔译</h3>
-                <p>合同、技术文档、法律文件、市场营销材料翻译</p>
+                <div class="service-icon">📝</div>
+                <h3 data-i18n="svc_translation">Document Translation</h3>
+                <p data-i18n="svc_translation_desc">Contracts, technical manuals, legal documents, patents, and marketing materials.</p>
             </div>
         </div>
     </div>
+</section>
 
-    <div class="section">
-        <div class="form-title">
-            <h2>立即咨询</h2>
+<!-- LANGUAGES -->
+<section class="section" style="background: var(--white);">
+    <div class="container">
+        <div class="section-header">
+            <h2 data-i18n="lang_title">Languages We Cover</h2>
+            <p data-i18n="lang_subtitle">Major world languages with native-level fluency</p>
+            <div class="divider"></div>
         </div>
-        <div class="form-note">
-            填写下方表单，我们将在 24 小时内回复您。所有信息严格保密。
+        <div class="languages-grid">
+            <div class="lang-tag">🇨🇳 Chinese (Mandarin)</div>
+            <div class="lang-tag">🇬🇧 English</div>
+            <div class="lang-tag">🇯🇵 Japanese</div>
+            <div class="lang-tag">🇰🇷 Korean</div>
+            <div class="lang-tag">🇫🇷 French</div>
+            <div class="lang-tag">🇩🇪 German</div>
+            <div class="lang-tag">🇪🇸 Spanish</div>
+            <div class="lang-tag">🇷🇺 Russian</div>
+            <div class="lang-tag">🇵🇹 Portuguese</div>
+            <div class="lang-tag">🇸🇦 Arabic</div>
+            <div class="lang-tag">🇮🇹 Italian</div>
+            <div class="lang-tag">🇹🇭 Thai</div>
+            <div class="lang-tag">🇻🇳 Vietnamese</div>
+            <div class="lang-tag">🇲🇾 Malay</div>
+            <div class="lang-tag">🇮🇩 Indonesian</div>
+            <div class="lang-tag">🇳🇱 Dutch</div>
         </div>
-        <!-- ========================================
-             TODO: 替换下面的 src 为你的 Google 表单地址
-             步骤：forms.google.com → 创建表单 → 发送 → 嵌入图标 <> → 复制 src 链接
-        ======================================== -->
-        <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSdXXXXXX/viewform?embedded=true"
-            width="100%" height="620" frameborder="0" marginheight="0" marginwidth="0">
-            加载中…
-        </iframe>
     </div>
+</section>
 
+<!-- WHY US -->
+<section class="section" id="why">
+    <div class="container">
+        <div class="section-header">
+            <h2 data-i18n="why_title">Why Choose Us</h2>
+            <p data-i18n="why_subtitle">Trusted by enterprises worldwide for mission-critical language support</p>
+            <div class="divider"></div>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">✓</div>
+                <div>
+                    <h4 data-i18n="why_certified">Certified Professionals</h4>
+                    <p data-i18n="why_certified_desc">All interpreters hold AIIC or national certification with proven track records.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">⚡</div>
+                <div>
+                    <h4 data-i18n="why_fast">Rapid Response</h4>
+                    <p data-i18n="why_fast_desc">24-hour quote turnaround. Emergency bookings available within 4 hours.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🔒</div>
+                <div>
+                    <h4 data-i18n="why_confidential">100% Confidential</h4>
+                    <p data-i18n="why_confidential_desc">NDA signed for every project. Your sensitive information is fully protected.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🌐</div>
+                <div>
+                    <h4 data-i18n="why_coverage">Global Coverage</h4>
+                    <p data-i18n="why_coverage_desc">On-site interpreters in 50+ cities worldwide. Remote interpretation available 24/7.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">💰</div>
+                <div>
+                    <h4 data-i18n="why_value">Transparent Pricing</h4>
+                    <p data-i18n="why_value_desc">No hidden fees. Clear hourly and daily rates with flexible packages.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">⭐</div>
+                <div>
+                    <h4 data-i18n="why_quality">Quality Guarantee</h4>
+                    <p data-i18n="why_quality_desc">Post-project review included. Free reassignment if standards are not met.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact" style="background: var(--white);">
+    <div class="container">
+        <div class="section-header">
+            <h2 data-i18n="contact_title">Get in Touch</h2>
+            <p data-i18n="contact_subtitle">Tell us about your project and get a response within 24 hours</p>
+            <div class="divider"></div>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3 data-i18n="contact_direct">Direct Contact</h3>
+                <div class="contact-item">
+                    <div class="contact-item-icon">📱</div>
+                    <div>
+                        <div class="contact-item-label">WhatsApp</div>
+                        <div class="contact-item-value">+86 138 3827 6878</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">💬</div>
+                    <div>
+                        <div class="contact-item-label">Quick Chat</div>
+                        <div class="contact-item-value"><a href="https://wa.me/8613838276878" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;" data-i18n="contact_whatsapp_btn">Message on WhatsApp →</a></div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">⏰</div>
+                    <div>
+                        <div class="contact-item-label" data-i18n="contact_hours">Business Hours</div>
+                        <div class="contact-item-value" data-i18n="contact_hours_val">Mon – Sat, 9:00 AM – 8:00 PM (CST)</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">🌍</div>
+                    <div>
+                        <div class="contact-item-label" data-i18n="contact_coverage_label">Coverage</div>
+                        <div class="contact-item-value" data-i18n="contact_coverage_val">Worldwide • On-site & Remote</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-frame">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdXXXXXX/viewform?embedded=true"
+                    width="100%" height="580" frameborder="0" marginheight="0" marginwidth="0">
+                    Loading…
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand">Global<span>Link</span> Interpreting</div>
+    <p>© 2026 GlobalLink Interpreting Services. All rights reserved.</p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<div class="whatsapp-float">
+    <a href="https://wa.me/8613838276878" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-i18n="whatsapp_label">Chat on WhatsApp</span>
+    </a>
 </div>
 
-<div class="footer">
-    © 2026 专业口译服务 | 用心翻译，沟通世界
-</div>
+<script>
+// === i18n Translations ===
+const translations = {
+    en: {
+        nav_services: "Services", nav_why: "Why Us", nav_contact: "Contact",
+        hero_title: 'Bridging Languages, <span>Connecting Worlds</span>',
+        hero_subtitle: "Professional interpreting & translation for conferences, business, and legal matters. 10+ years of experience serving 100+ enterprises globally.",
+        hero_cta: "Get a Free Quote", hero_learn: "Our Services",
+        stat_years: "Years Experience", stat_clients: "Clients Served", stat_projects: "Projects Done", stat_languages: "Language Pairs",
+        services_title: "Our Services", services_subtitle: "Comprehensive language solutions tailored to your needs",
+        svc_conference: "Conference Interpreting", svc_conference_desc: "Consecutive and simultaneous interpretation for international conferences, forums, and summits.",
+        svc_simultaneous: "Simultaneous Interpretation", svc_simultaneous_desc: "Professional booth interpreters and equipment for real-time multilingual events.",
+        svc_escort: "Business Escort", svc_escort_desc: "On-site language support for factory tours, client meetings, negotiations, and trade shows.",
+        svc_translation: "Document Translation", svc_translation_desc: "Contracts, technical manuals, legal documents, patents, and marketing materials.",
+        lang_title: "Languages We Cover", lang_subtitle: "Major world languages with native-level fluency",
+        why_title: "Why Choose Us", why_subtitle: "Trusted by enterprises worldwide for mission-critical language support",
+        why_certified: "Certified Professionals", why_certified_desc: "All interpreters hold AIIC or national certification with proven track records.",
+        why_fast: "Rapid Response", why_fast_desc: "24-hour quote turnaround. Emergency bookings available within 4 hours.",
+        why_confidential: "100% Confidential", why_confidential_desc: "NDA signed for every project. Your sensitive information is fully protected.",
+        why_coverage: "Global Coverage", why_coverage_desc: "On-site interpreters in 50+ cities worldwide. Remote interpretation available 24/7.",
+        why_value: "Transparent Pricing", why_value_desc: "No hidden fees. Clear hourly and daily rates with flexible packages.",
+        why_quality: "Quality Guarantee", why_quality_desc: "Post-project review included. Free reassignment if standards are not met.",
+        contact_title: "Get in Touch", contact_subtitle: "Tell us about your project and get a response within 24 hours",
+        contact_direct: "Direct Contact",
+        contact_whatsapp_btn: "Message on WhatsApp →",
+        contact_hours: "Business Hours", contact_hours_val: "Mon – Sat, 9:00 AM – 8:00 PM (CST)",
+        contact_coverage_label: "Coverage", contact_coverage_val: "Worldwide • On-site & Remote",
+        whatsapp_label: "Chat on WhatsApp"
+    },
+    zh: {
+        nav_services: "服务", nav_why: "优势", nav_contact: "联系",
+        hero_title: '连接语言，<span>沟通世界</span>',
+        hero_subtitle: "专业口译与翻译服务，覆盖会议、商务、法律领域。10年经验，服务100+企业。",
+        hero_cta: "免费咨询", hero_learn: "了解服务",
+        stat_years: "年行业经验", stat_clients: "服务企业", stat_projects: "完成项目", stat_languages: "语言对",
+        services_title: "服务范围", services_subtitle: "量身定制的专业语言解决方案",
+        svc_conference: "会议口译", svc_conference_desc: "承接各类国际会议、论坛、峰会的交替传译服务。",
+        svc_simultaneous: "同声传译", svc_simultaneous_desc: "提供专业同传设备与译员，保障多语言实时会议。",
+        svc_escort: "商务陪同", svc_escort_desc: "工厂参观、客户接待、商务谈判、展会全程语言支持。",
+        svc_translation: "文档翻译", svc_translation_desc: "合同、技术手册、法律文件、专利、市场营销材料翻译。",
+        lang_title: "覆盖语言", lang_subtitle: "母语级流利度的世界主要语言",
+        why_title: "为什么选择我们", why_subtitle: "全球企业信赖的关键语言支持伙伴",
+        why_certified: "专业认证", why_certified_desc: "所有译员持有 AIIC 或国家级认证，经验丰富。",
+        why_fast: "快速响应", why_fast_desc: "24小时内报价，紧急需求4小时内安排。",
+        why_confidential: "严格保密", why_confidential_desc: "每个项目签署保密协议，敏感信息全面保护。",
+        why_coverage: "全球覆盖", why_coverage_desc: "50+城市驻点译员，远程口译全天候可用。",
+        why_value: "透明定价", why_value_desc: "无隐藏费用，时薪日薪清晰，灵活套餐。",
+        why_quality: "质量保证", why_quality_desc: "含项目后审校，未达标免费更换译员。",
+        contact_title: "联系我们", contact_subtitle: "告诉我们您的需求，24小时内回复",
+        contact_direct: "直接联系",
+        contact_whatsapp_btn: "WhatsApp 咨询 →",
+        contact_hours: "工作时间", contact_hours_val: "周一至周六 9:00 – 20:00（北京时间）",
+        contact_coverage_label: "服务范围", contact_coverage_val: "全球 • 线下 & 远程",
+        whatsapp_label: "WhatsApp 咨询"
+    },
+    ja: {
+        nav_services: "サービス", nav_why: "選ばれる理由", nav_contact: "お問い合わせ",
+        hero_title: '言語を架け橋に、<span>世界をつなぐ</span>',
+        hero_subtitle: "会議・ビジネス・法律分野のプロ翻訳・通訳サービス。10年以上の実績、100社以上の企業にご支援。",
+        hero_cta: "無料見積もり", hero_learn: "サービス一覧",
+        stat_years: "年の実績", stat_clients: "対応企業", stat_projects: "完了案件", stat_languages: "対応言語",
+        services_title: "サービス内容", services_subtitle: "お客様のニーズに合わせた包括的な言語ソリューション",
+        svc_conference: "会議通訳", svc_conference_desc: "国際会議・フォーラム・サミットの逐次通訳。",
+        svc_simultaneous: "同時通訳", svc_simultaneous_desc: "プロブース通訳者と機材でリアルタイム多言語イベントをサポート。",
+        svc_escort: "ビジネス escort", svc_escort_desc: "工場見学、クライアント会議、交渉、展示会での言語サポート。",
+        svc_translation: "ドキュメント翻訳", svc_translation_desc: "契約書、技術マニュアル、法的文書、特許、マーケティング資料。",
+        lang_title: "対応言語", lang_subtitle: "ネイティブレベルの主要言語対応",
+        why_title: "選ばれる理由", why_subtitle: "世界中の企業から信頼される言語サポート",
+        why_certified: "資格保有", why_certified_desc: "全通訳者がAIICまたは国家資格を保有。",
+        why_fast: "迅速対応", why_fast_desc: "24時間以内に見積もり。緊急対応は4時間以内。",
+        why_confidential: "完全保密", why_confidential_desc: "全案件でNDA締結。機密情報は完全に保護。",
+        why_coverage: "グローバル対応", why_coverage_desc: "世界50都市以上の現地通訳者。リモート通訳は24時間対応。",
+        why_value: "透明な料金", why_value_desc: "隠れた費用なし。時間制・日制の明確な料金体系。",
+        why_quality: "品質保証", why_quality_desc: "プロジェクト後レビュー付き。基準を満たさない場合は無料で交代。",
+        contact_title: "お問い合わせ", contact_subtitle: "プロジェクトについて教えてください。24時間以内にご返信いたします",
+        contact_direct: "直接お問い合わせ",
+        contact_whatsapp_btn: "WhatsAppで相談 →",
+        contact_hours: "営業時間", contact_hours_val: "月～土 9:00～20:00（中国標準時）",
+        contact_coverage_label: "対応範囲", contact_coverage_val: "世界中 • 現地 & リモート",
+        whatsapp_label: "WhatsApp相談"
+    },
+    ko: {
+        nav_services: "서비스", nav_why: "선호 이유", nav_contact: "문의",
+        hero_title: '언어를 잇고, <span>세계를 연결합니다</span>',
+        hero_subtitle: "회의·비즈니스·법률 분야 전문 통번역 서비스. 10년 이상의 경력, 100개 이상 기업 서비스.",
+        hero_cta: "무료 견적", hero_learn: "서비스 안내",
+        stat_years: "년 경력", stat_clients: "서비스 기업", stat_projects: "완료 프로젝트", stat_languages: "언어 페어",
+        services_title: "서비스 범위", services_subtitle: "고객 맞춤형 종합 언어 솔루션",
+        svc_conference: "회의 통역", svc_conference_desc: "국제 회의, 포럼, 정상회의 순차 통역.",
+        svc_simultaneous: "동시 통역", svc_simultaneous_desc: "전문 부스 통역사 및 장비로 실시간 다국어 이벤트 지원.",
+        svc_escort: "비즈니스 동행", svc_escort_desc: "공장 견학, 고객 미팅, 협상, 전시회 언어 지원.",
+        svc_translation: "문서 번역", svc_translation_desc: "계약서, 기술 매뉴얼, 법률 문서, 특허, 마케팅 자료.",
+        lang_title: "지원 언어", lang_subtitle: "원어민 수준의 주요 세계 언어 지원",
+        why_title: "선호하는 이유", why_subtitle: "전 세계 기업이 신뢰하는 언어 지원 파트너",
+        why_certified: "자격 보유", why_certified_desc: "모든 통역사가 AIIC 또는 국가 자격증 보유.",
+        why_fast: "신속 대응", why_fast_desc: "24시간 이내 견적. 긴급 예약 4시간 이내 가능.",
+        why_confidential: "100% 비밀유지", why_confidential_desc: "모든 프로젝트 NDA 체결. 민감한 정보 완전 보호.",
+        why_coverage: "글로벌 커버리지", why_coverage_desc: "전 세계 50개 이상 도시 현지 통역사. 원격 통역 24시간 가능.",
+        why_value: "투명한 가격", why_value_desc: "숨겨진 비용 없음. 명확한 시간제·일일제 요금.",
+        why_quality: "품질 보증", why_quality_desc: "프로젝트 후 리뷰 포함. 기준 미충족 시 무료 교체.",
+        contact_title: "문의하기", contact_subtitle: "프로젝트에 대해 알려주세요. 24시간 이내 답변드립니다",
+        contact_direct: "직접 연락",
+        contact_whatsapp_btn: "WhatsApp 상담 →",
+        contact_hours: "영업시간", contact_hours_val: "월~토 9:00~20:00 (중국 표준시)",
+        contact_coverage_label: "서비스 범위", contact_coverage_val: "글로벌 • 현지 & 원격",
+        whatsapp_label: "WhatsApp 상담"
+    },
+    fr: {
+        nav_services: "Services", nav_why: "Pourquoi nous", nav_contact: "Contact",
+        hero_title: 'Relier les langues, <span>connecter le monde</span>',
+        hero_subtitle: "Services professionnels d'interprétation et de traduction pour conférences, affaires et juridique. Plus de 10 ans d'expérience.",
+        hero_cta: "Devis gratuit", hero_learn: "Nos services",
+        stat_years: "Ans d'expérience", stat_clients: "Clients servis", stat_projects: "Projets réalisés", stat_languages: "Paires de langues",
+        services_title: "Nos services", services_subtitle: "Solutions linguistiques complètes adaptées à vos besoins",
+        svc_conference: "Interprétation de conférence", svc_conference_desc: "Interprétation consécutive et simultanée pour conférences et sommets internationaux.",
+        svc_simultaneous: "Interprétation simultanée", svc_simultaneous_desc: "Interprètes et équipements professionnels pour événements multilingues en temps réel.",
+        svc_escort: "Accompagnement professionnel", svc_escort_desc: "Soutien linguistique sur site pour visites, réunions, négociations et salons.",
+        svc_translation: "Traduction de documents", svc_translation_desc: "Contrats, manuels techniques, documents juridiques, brevets et matériel marketing.",
+        lang_title: "Langues couvertes", lang_subtitle: "Principales langues mondiales avec maîtrise native",
+        why_title: "Pourquoi nous choisir", why_subtitle: "La confiance des entreprises du monde entier",
+        why_certified: "Professionnels certifiés", why_certified_desc: "Tous les interprètes détiennent une certification AIIC ou nationale.",
+        why_fast: "Réponse rapide", why_fast_desc: "Devis en 24h. Réservations d'urgence sous 4 heures.",
+        why_confidential: "100% confidentiel", why_confidential_desc: "NDA signé pour chaque projet. Vos informations sont protégées.",
+        why_coverage: "Couverture mondiale", why_coverage_desc: "Interprètes sur site dans 50+ villes. Interprétation à distance 24/7.",
+        why_value: "Prix transparent", why_value_desc: "Pas de frais cachés. Tarifs clairs et flexibles.",
+        why_quality: "Garantie qualité", why_quality_desc: "Revue post-projet incluse. Remplacement gratuit si standards non atteints.",
+        contact_title: "Contactez-nous", contact_subtitle: "Décrivez votre projet et recevez une réponse sous 24 heures",
+        contact_direct: "Contact direct",
+        contact_whatsapp_btn: "Message sur WhatsApp →",
+        contact_hours: "Heures d'ouverture", contact_hours_val: "Lun – Sam, 9h00 – 20h00 (heure de Chine)",
+        contact_coverage_label: "Couverture", contact_coverage_val: "Mondial • Sur site & À distance",
+        whatsapp_label: "Discuter sur WhatsApp"
+    },
+    de: {
+        nav_services: "Dienstleistungen", nav_why: "Warum wir", nav_contact: "Kontakt",
+        hero_title: 'Sprachen verbinden, <span>Welten vereinen</span>',
+        hero_subtitle: "Professionelle Dolmetscher- und Übersetzungsdienste für Konferenzen, Business und Recht. Über 10 Jahre Erfahrung.",
+        hero_cta: "Kostenloses Angebot", hero_learn: "Unsere Dienste",
+        stat_years: "Jahre Erfahrung", stat_clients: "Betriede betreut", stat_projects: "Projekte abgeschlossen", stat_languages: "Sprachpaare",
+        services_title: "Unsere Dienste", services_subtitle: "Umfassende Sprachlösungen nach Ihren Bedürfnissen",
+        svc_conference: "Konferenzdolmetschen", svc_conference_desc: "Aufeinanderfolgendes und simultanes Dolmetschen für internationale Konferenzen.",
+        svc_simultaneous: "Simultandolmetschen", svc_simultaneous_desc: "Professionelle Kabine und Technik für mehrsprachige Veranstaltungen.",
+        svc_escort: "Business-Escort", svc_escort_desc: "Sprachunterstützung vor Ort für Fabrikbesuche, Meetings und Messen.",
+        svc_translation: "Dokumentenübersetzung", svc_translation_desc: "Verträge, technische Handbücher, Rechtsdokumente, Patente und Marketingmaterial.",
+        lang_title: "Unterstützte Sprachen", lang_subtitle: "Weltweite Hauptsprachen mit muttersprachlicher Kompetenz",
+        why_title: "Warum uns wählen", why_subtitle: "Vertraut von Unternehmen weltweit",
+        why_certified: "Zertifizierte Profis", why_certified_desc: "Alle Dolmetscher mit AIIC- oder Landes-Zertifizierung.",
+        why_fast: "Schnelle Reaktion", why_fast_desc: "Angebot innerhalb 24 Stunden. Notfall buchbar in 4 Stunden.",
+        why_confidential: "100% vertraulich", why_confidential_desc: "NDA für jedes Projekt. Ihre Daten sind geschützt.",
+        why_coverage: "Globale Abdeckung", why_coverage_desc: "Lokale Dolmetscher in 50+ Städten. Remote 24/7 verfügbar.",
+        why_value: "Transparente Preise", why_value_desc: "Keine versteckten Gebühren. Klare Tagessätze und Stundensätze.",
+        why_quality: "Qualitätsgarantie", why_quality_desc: "Nachprojekt-Review inklusive. Kostenloser Austausch bei Qualitätsmängeln.",
+        contact_title: "Kontaktieren Sie uns", contact_subtitle: "Beschreiben Sie Ihr Projekt – Antwort innerhalb 24 Stunden",
+        contact_direct: "Direktkontakt",
+        contact_whatsapp_btn: "WhatsApp schreiben →",
+        contact_hours: "Öffnungszeiten", contact_hours_val: "Mo – Sa, 9:00 – 20:00 (CST)",
+        contact_coverage_label: "Abdeckung", contact_coverage_val: "Weltweit • Vor Ort & Remote",
+        whatsapp_label: "WhatsApp Chat"
+    },
+    es: {
+        nav_services: "Servicios", nav_why: "Por qué nosotros", nav_contact: "Contacto",
+        hero_title: 'Conectar idiomas, <span>unir mundos</span>',
+        hero_subtitle: "Servicios profesionales de interpretación y traducción para conferencias, negocios y legal. Más de 10 años de experiencia.",
+        hero_cta: "Cotización gratuita", hero_learn: "Nuestros servicios",
+        stat_years: "Años de experiencia", stat_clients: "Empresas atendidas", stat_projects: "Proyectos completados", stat_languages: "Par de idiomas",
+        services_title: "Nuestros servicios", services_subtitle: "Soluciones lingüísticas integrales adaptadas a sus necesidades",
+        svc_conference: "Interpretación de conferencias", svc_conference_desc: "Interpretación consecutiva y simultánea para conferencias y cumbres internacionales.",
+        svc_simultaneous: "Interpretación simultánea", svc_simultaneous_desc: "Intérpretes y equipamiento profesional para eventos multilingües en tiempo real.",
+        svc_escort: "Escort de negocios", svc_escort_desc: "Apoyo lingüístico en sitio para visitas, reuniones, negociaciones y ferias.",
+        svc_translation: "Traducción de documentos", svc_translation_desc: "Contratos, manuales técnicos, documentos legales, patentes y material de marketing.",
+        lang_title: "Idiomas cubiertos", lang_subtitle: "Principales idiomas del mundo con competencia nativa",
+        why_title: "Por qué elegirnos", why_subtitle: "La confianza de empresas en todo el mundo",
+        why_certified: "Profesionales certificados", why_certified_desc: "Todos los intérpretes cuentan con certificación AIIC o nacional.",
+        why_fast: "Respuesta rápida", why_fast_desc: "Cotización en 24 horas. Reservas de emergencia en 4 horas.",
+        why_confidential: "100% confidencial", why_confidential_desc: "NDA firmado para cada proyecto. Su información está protegida.",
+        why_coverage: "Cobertura global", why_coverage_desc: "Intérpretes en 50+ ciudades. Interpretación remota 24/7.",
+        why_value: "Precios transparentes", why_value_desc: "Sin costos ocultos. Tarifas claras por hora y día.",
+        why_quality: "Garantía de calidad", why_quality_desc: "Revisión posterior al proyecto. Reemplazo gratuito si no se cumplen estándares.",
+        contact_title: "Contáctenos", contact_subtitle: "Cuéntenos sobre su proyecto y reciba respuesta en 24 horas",
+        contact_direct: "Contacto directo",
+        contact_whatsapp_btn: "Mensaje en WhatsApp →",
+        contact_hours: "Horario", contact_hours_val: "Lun – Sáb, 9:00 AM – 8:00 PM (hora de China)",
+        contact_coverage_label: "Cobertura", contact_coverage_val: "Mundial • Presencial & Remoto",
+        whatsapp_label: "Chat en WhatsApp"
+    }
+};
+
+// === Language Switcher ===
+function setLang(lang) {
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+
+    // Update page title
+    const titles = {
+        en: "GlobalLink Interpreting | Professional Language Services",
+        zh: "GlobalLink 口译服务 | 专业翻译与同传",
+        ja: "GlobalLink 通訳 | プロ翻訳・通訳サービス",
+        ko: "GlobalLink 통역 | 전문 통번역 서비스",
+        fr: "GlobalLink Interprétation | Services Linguistiques Professionnels",
+        de: "GlobalLink Dolmetschen | Professionelle Sprachdienste",
+        es: "GlobalLink Interpretación | Servicios Lingüísticos Profesionales"
+    };
+    document.title = titles[lang] || titles.en;
+}
+
+// Default to Chinese
+setLang('zh');
+</script>
 
 </body>
 </html>
